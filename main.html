@@ -1,79 +1,225 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8" meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="bootsrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="bootsrap/css/bootstrap.css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
     <link rel="icon" href="imac.png" type="image/icon type">
     <link href="headers.css" rel="stylesheet">
+    <link href="carousel.css" rel="stylesheet">
+    <link href="slide.css" rel="stylesheet">
+    <link href="features.css" rel="stylesheet">
+    <link href="footers.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <title>Streaming</title>
     
 </head>
 <html lang="hu">
 <body>
-  <div class="container">
-    <header class="d-flex justify-content-center py-3">
-      <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#tema" class="nav-link">Témáink</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Ezen oldalak jelentőssége</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Elérhetőségeink</a></li>
-      </ul>
+  <div style="display: none;">
+  <svg id="tv" style="color: antiquewhite;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tv" class="svg-inline--fa fa-tv fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M592 0H48A48 48 0 0 0 0 48v320a48 48 0 0 0 48 48h240v32H112a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16H352v-32h240a48 48 0 0 0 48-48V48a48 48 0 0 0-48-48zm-16 352H64V64h512z"></path></svg>
+  <svg id="hangjegy" style="color: antiquewhite;" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="itunes-note" class="svg-inline--fa fa-itunes-note fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M381.9 388.2c-6.4 27.4-27.2 42.8-55.1 48-24.5 4.5-44.9 5.6-64.5-10.2-23.9-20.1-24.2-53.4-2.7-74.4 17-16.2 40.9-19.5 76.8-25.8 6-1.1 11.2-2.5 15.6-7.4 6.4-7.2 4.4-4.1 4.4-163.2 0-11.2-5.5-14.3-17-12.3-8.2 1.4-185.7 34.6-185.7 34.6-10.2 2.2-13.4 5.2-13.4 16.7 0 234.7 1.1 223.9-2.5 239.5-4.2 18.2-15.4 31.9-30.2 39.5-16.8 9.3-47.2 13.4-63.4 10.4-43.2-8.1-58.4-58-29.1-86.6 17-16.2 40.9-19.5 76.8-25.8 6-1.1 11.2-2.5 15.6-7.4 10.1-11.5 1.8-256.6 5.2-270.2.8-5.2 3-9.6 7.1-12.9 4.2-3.5 11.8-5.5 13.4-5.5 204-38.2 228.9-43.1 232.4-43.1 11.5-.8 18.1 6 18.1 17.6.2 344.5 1.1 326-1.8 338.5z"></path></svg>
+  <svg id="bankkartya" style="color: antiquewhite;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="credit-card" class="svg-inline--fa fa-credit-card fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M0 432c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V256H0v176zm192-68c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-40zm-128 0c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM576 80v48H0V80c0-26.5 21.5-48 48-48h480c26.5 0 48 21.5 48 48z"></path></svg>
+  <svg id="antenna" style="color: antiquewhite;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="satellite-dish" class="svg-inline--fa fa-satellite-dish fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M305.44954,462.59c7.39157,7.29792,6.18829,20.09661-3.00038,25.00356-77.713,41.80281-176.72559,29.9105-242.34331-35.7082C-5.49624,386.28227-17.404,287.362,24.41381,209.554c4.89125-9.095,17.68975-10.29834,25.00318-3.00043L166.22872,323.36708l27.39411-27.39452c-.68759-2.60974-1.594-5.00071-1.594-7.81361a32.00407,32.00407,0,1,1,32.00407,32.00455c-2.79723,0-5.20378-.89075-7.79786-1.594l-27.40974,27.41015ZM511.9758,303.06732a16.10336,16.10336,0,0,1-16.002,17.00242H463.86031a15.96956,15.96956,0,0,1-15.89265-15.00213C440.46671,175.5492,336.45348,70.53427,207.03078,63.53328a15.84486,15.84486,0,0,1-15.00191-15.90852V16.02652A16.09389,16.09389,0,0,1,209.031.02425C372.25491,8.61922,503.47472,139.841,511.9758,303.06732Zm-96.01221-.29692a16.21093,16.21093,0,0,1-16.11142,17.29934H367.645a16.06862,16.06862,0,0,1-15.89265-14.70522c-6.90712-77.01094-68.118-138.91037-144.92467-145.22376a15.94,15.94,0,0,1-14.79876-15.89289V112.13393a16.134,16.134,0,0,1,17.29908-16.096C319.45132,104.5391,407.55627,192.64538,415.96359,302.7704Z"></path></svg>
+  <svg id="users" style="color: antiquewhite;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="users" class="svg-inline--fa fa-users fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"></path></svg>
+  <svg id="nincs" style="color:antiquewhite" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="exclamation-triangle" class="svg-inline--fa fa-exclamation-triangle fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"></path></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="bootstrap" viewBox="0 0 118 94">
+      <title>Bootstrap</title>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
+    </symbol>
+    <symbol id="facebook" viewBox="0 0 16 16">
+      <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+    </symbol>
+    <symbol id="instagram" viewBox="0 0 16 16">
+        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+    </symbol>
+    <symbol id="twitter" viewBox="0 0 16 16">
+      <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+    </symbol>
+  </svg>
+  </div>
+  <div id="top" class="container-responsive">
+    <header class="p-3 bg-dark text-white fixed-top ">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ">
+            <li><a href="#top" class="nav-link px-2 text-secondary">Kezdőlap</a></li>
+            <li><a href="#tema" class="nav-link px-2 text-white">Témáink</a></li>
+            <li><a href="#jelent" class="nav-link px-2 text-white">Ezen oldalak jelentőssége</a></li>
+            <li><a href="#eler" class="nav-link px-2 text-white">Elérhetőségeink</a></li>
+          </ul>
+  
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+            <input type="search" class="form-control form-control-dark" placeholder="Keresés..." aria-label="Search">
+          </form>
+        </div>
+      </div>
     </header>
   </div>
-  <h1 style="text-align: center;">Köszöntünk csapatunk weboldalán!</h1>
-  <div class="container">
+  <h1 style="text-align: center; padding-top: 10px;">Köszöntünk csapatunk weboldalán!</h1>
+  <div class="container-responsive" style="padding-top: 30px;">
     <div class="row">
       <div class="col-sm">
-        <h2 style="text-align: justify;">Projektünk témája az ismertebb Streaming-szolgáltatások lesznek. Azon három cég munkásságát dolgoztuk fel, amelyek talán az egyik legismertebbek. Ezek foglalkoztattak 
+        <h2 style="text-align: justify; padding-left: 30px;">Projektünk témája az ismertebb Streaming-szolgáltatások lesznek. Azon három cég munkásságát dolgoztuk fel, amelyek talán az egyik legismertebbek. Ezek foglalkoztattak 
           minket a legjobban, ezeket véltük a legérdekesebbeknek többi versenytársaikkal szemben. Ha téged is érdekelnek a fentebb említett dolgok, akkor tarts velünk!
         </h2>
       </div>
       <div class="col-sm">
-        
+        <div class="slideshow-container">
+
+          <div class="mySlides fade">
+            <img src="slide1.jpg">
+          </div>
+          
+          <div class="mySlides fade">
+            <img src="slide2.jpg">
+          </div>
+          
+          <div class="mySlides fade">
+            <img src="slide3.jpg">
+          </div>
+          
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          
+          </div>
+          <br>
+          
+          <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+          </div>
+          
+          <script>
+            var slideIndex = 0;
+            showSlides();
+            
+            function showSlides() {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("dot");
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+              }
+              slideIndex++;
+              if (slideIndex > slides.length) {slideIndex = 1}    
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " active";
+              setTimeout(showSlides, 4000);
+            }
+            </script>
+        </div>          
+    </div> 
+  </div> 
+  <div id="tema" class="container-responsive px-4 py-5" id="custom-cards">
+    <h1 class="pb-2 border-bottom border-4 border-dark">Feldolgozott témáink</h1>
+     <div class="row row-cols-1 row-cols-3 align-items-stretch g-4 py-5">
+       <div class="col">
+         <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('netflix.jpg'); background-size: 100%; background-position: center;">
+           <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+             <ul class="d-flex list-unstyled mt-auto">
+               <li class="me-auto">
+                 <a href="netflix.html" target="_blank"><img src="right-arrow.png" width="32" height="32"></a>
+               </li>
+             </ul>
+           </div>
+         </div>
+       </div>
+ 
+       <div class="col">
+         <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('twitch.jpg'); background-size: 100%; background-position: center;">
+           <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+             <ul class="d-flex list-unstyled mt-auto">
+               <li class="me-auto">
+                 <a href="twitch.html" target="_blank"><img src="right-arrow.png" width="32" height="32"></a>
+               </li>
+             </ul>
+           </div>
+         </div>
+       </div>
+       <div class="col">
+         <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('youtube.png'); background-size: 100%; background-position: center;">
+           <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+             <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"> </h2>
+             <ul class="d-flex list-unstyled mt-auto">
+               <li class="me-auto">
+                 <a href="youtube.html" target="_blank"><img src="right-arrow.png" width="32" height="32"></a>
+               </li>
+             </ul>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+ <div id="jelent" class="container-responsive px-4 py-5">
+  <h1 class="pb-2 border-bottom border-4 border-dark">Ezen oldalak jelentőssége</h1>
+  <div class="row">
+    <div class="col">
+      <svg class="bi text-muted flex-shrink-0 me-3" style="width: 50%; height:50%;"><use xlink:href="#tv"/></svg>
+      <div>
+        <h3 class="fw-bold mb-0">Megjelenítés</h3>
+        <h5>A különböző tartalmak fogyasztását bárhol megteheted. Lehet az egy okostelefon, egy tablet vagy akár a számítógéped. Sőt még akár okos TV-n is!</h5>
       </div>
-    <div id="tema" class="container px-4 py-5" id="custom-cards">
-       <h2 class="pb-2 border-bottom">Témáink</h2>
-    
-        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-          <div class="col">
-            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('netflix.jpg'); background-size: 100%; background-position: center;">
-              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                <ul class="d-flex list-unstyled mt-auto">
-                  <li class="me-auto">
-                    <a href="netflix.html" target="_blank"><img src="right-arrow.png" width="32" height="32"></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-    
-          <div class="col">
-            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('twitch.jpg'); background-size: 100%;">
-              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                <ul class="d-flex list-unstyled mt-auto">
-                  <li class="me-auto">
-                    <a href="twitch.html" target="_blank"><img src="right-arrow.png" width="32" height="32"></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-    
-          <div class="col">
-            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('youtube.png'); background-size: 100%; background-position: center;">
-              <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"> </h2>
-                <ul class="d-flex list-unstyled mt-auto">
-                  <li class="me-auto">
-                    <a href="youtube.html" target="_blank"><img src="right-arrow.png" width="32" height="32"></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+    </div>
+    <div class="col ">
+      <svg class="bi text-muted flex-shrink-0 me-3" style="width: 50%; height:50%;"><use xlink:href="#antenna"/></svg>
+      <div>
+        <h3 class="fw-bold mb-0">Bárhol igénybe lehet venni őket</h3>
+        <h5>Ha van stabil internet hozzáférésed, akkor ezeket az szolgáltatásokat bármikor használhatod.</h5>
       </div>
-    
+    </div>
+    <div class="col ">
+      <svg class="bi text-muted flex-shrink-0 me-3" style="width: 50%; height:50%;"><use xlink:href="#bankkartya"/></svg>
+            <div>
+        <h3 class="fw-bold mb-0">Előfizetések</h3>
+        <h5>Bizonyos plusz szolgáltatásokért havonta kell díjat fizetnünk. Például: A Netflix nem vehető igénybe előfizetés nélkül, csak az első 1 hónapra.</h5>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <svg class="kozep bi text-muted flex-shrink-0 me-3" style="width: 50%; height:50%;"><use xlink:href="#hangjegy"/></svg>
+            <div>
+        <h3 class="fw-bold mb-0">Zenehallgatás</h3>
+        <h5>Vannak olyan Streaming-oldalak is ahol a zenére van helyezve a hangsúly. Ilyen oldalak például a: Spotify, iTunes vagy a Tidal.</h5>
+      </div>
+    </div>
+    <div class="col ">
+      <svg class="bi text-muted flex-shrink-0 me-3" style="width: 50%; height:50%;"><use xlink:href="#users"/></svg>
+            <div>
+        <h3 class="fw-bold mb-0">Közösség</h3>
+        <h5>Ezek az oldalak képesek összehozni akár emberek százezreit it. Legutóbb az egyik ilyen nagy eseménynek (LoL Világbajnokságnak) például a Twitch adott helyet, amit világszerte 4 millióan is néztek egyidőben.</h5>
+      </div>
+    </div>
+    <div class="col ">
+      <svg class="bi text-muted flex-shrink-0 me-3" style="width: 50%; height:50%;"><use xlink:href="#nincs"/></svg>
+            <div>
+        <h3 class="fw-bold mb-0">Offline mód</h3>
+        <h5>Elment az internet? Semmi gond, mivel ezek a szolgáltatások használhatóak offline állapotban is, ha előtte letöltötted a kívánt tartalmat (kivétel képez a Twitch).</h5>
+      </div>
+    </div>
+  </div>
+  <div id="eler" class="container-fluid fixed-bottom bg-dark">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+        </a>
+        <span class="text-muted">&copy; 2021 Company, Inc</span>
+      </div>
+  
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+      </ul>
+    </footer>
+  </div>
 </body>
 </html>
