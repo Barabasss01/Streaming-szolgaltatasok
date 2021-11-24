@@ -15,7 +15,7 @@
     
 </head>
 <html lang="hu">
-<body>
+<body id="top">
   <div style="display: none;">
   <svg id="tv" style="color: antiquewhite;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tv" class="svg-inline--fa fa-tv fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M592 0H48A48 48 0 0 0 0 48v320a48 48 0 0 0 48 48h240v32H112a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16H352v-32h240a48 48 0 0 0 48-48V48a48 48 0 0 0-48-48zm-16 352H64V64h512z"></path></svg>
   <svg id="hangjegy" style="color: antiquewhite;" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="itunes-note" class="svg-inline--fa fa-itunes-note fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M381.9 388.2c-6.4 27.4-27.2 42.8-55.1 48-24.5 4.5-44.9 5.6-64.5-10.2-23.9-20.1-24.2-53.4-2.7-74.4 17-16.2 40.9-19.5 76.8-25.8 6-1.1 11.2-2.5 15.6-7.4 6.4-7.2 4.4-4.1 4.4-163.2 0-11.2-5.5-14.3-17-12.3-8.2 1.4-185.7 34.6-185.7 34.6-10.2 2.2-13.4 5.2-13.4 16.7 0 234.7 1.1 223.9-2.5 239.5-4.2 18.2-15.4 31.9-30.2 39.5-16.8 9.3-47.2 13.4-63.4 10.4-43.2-8.1-58.4-58-29.1-86.6 17-16.2 40.9-19.5 76.8-25.8 6-1.1 11.2-2.5 15.6-7.4 10.1-11.5 1.8-256.6 5.2-270.2.8-5.2 3-9.6 7.1-12.9 4.2-3.5 11.8-5.5 13.4-5.5 204-38.2 228.9-43.1 232.4-43.1 11.5-.8 18.1 6 18.1 17.6.2 344.5 1.1 326-1.8 338.5z"></path></svg>
@@ -39,7 +39,7 @@
     </symbol>
   </svg>
   </div>
-  <div id="top" class="container-responsive">
+  <div id="" class="container-responsive">
     <header class="p-3 bg-dark text-white fixed-top ">
       <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -49,10 +49,6 @@
             <li><a href="#jelent" class="nav-link px-2 text-white">Ezen oldalak jelentőssége</a></li>
             <li><a href="#eler" class="nav-link px-2 text-white">Elérhetőségeink</a></li>
           </ul>
-  
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-            <input type="search" class="form-control form-control-dark" placeholder="Keresés..." aria-label="Search">
-          </form>
         </div>
       </div>
     </header>
@@ -118,13 +114,13 @@
   </div> 
   <div id="tema" class="container-responsive px-4 py-5" id="custom-cards">
     <h1 class="pb-2 border-bottom border-4 border-dark">Feldolgozott témáink</h1>
-     <div class="row row-cols-1 row-cols-3 align-items-stretch g-4 py-5">
-       <div class="col">
+    <div class="row row-cols-1 row-cols-3 align-items-stretch g-4 py-5">
+        <div class="col">
          <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('netflix.jpg'); background-size: 100%; background-position: center;">
            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
              <ul class="d-flex list-unstyled mt-auto">
                <li class="me-auto">
-                 <a href="netflix.html" target="_blank"><img src="right-arrow.png" width="32" height="32"></a>
+                 <a href="netflix.html"><img src="right-arrow.png" width="32" height="32"></a>
                </li>
              </ul>
            </div>
@@ -136,7 +132,7 @@
            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
              <ul class="d-flex list-unstyled mt-auto">
                <li class="me-auto">
-                 <a href="twitch.html" target="_blank"><img src="right-arrow.png" width="32" height="32"></a>
+                 <a href="twitch.html"><img src="right-arrow.png" width="32" height="32"></a>
                </li>
              </ul>
            </div>
@@ -148,14 +144,14 @@
              <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"> </h2>
              <ul class="d-flex list-unstyled mt-auto">
                <li class="me-auto">
-                 <a href="youtube.html" target="_blank"><img src="right-arrow.png" width="32" height="32"></a>
+                 <a href="youtube.html"><img src="right-arrow.png" width="32" height="32"></a>
                </li>
              </ul>
            </div>
          </div>
        </div>
      </div>
-   </div>
+    </div>
  </div>
  <div id="jelent" class="container-responsive px-4 py-5">
   <h1 class="pb-2 border-bottom border-4 border-dark">Ezen oldalak jelentőssége</h1>
@@ -201,23 +197,20 @@
       <svg class="bi text-muted flex-shrink-0 me-3" style="width: 50%; height:50%;"><use xlink:href="#nincs"/></svg>
             <div>
         <h3 class="fw-bold mb-0">Offline mód</h3>
-        <h5>Elment az internet? Semmi gond, mivel ezek a szolgáltatások használhatóak offline állapotban is, ha előtte letöltötted a kívánt tartalmat (kivétel képez a Twitch).</h5>
+        <h5>Elment az internet? Semmi gond, mivel ezek a szolgáltatások használhatóak offline állapotban is, ha előtte letöltötted a kívánt tartalmat (kivételt képez a Twitch).</h5>
       </div>
     </div>
   </div>
   <div id="eler" class="container-fluid fixed-bottom bg-dark">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
       <div class="col-md-4 d-flex align-items-center">
-        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-          <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
-        </a>
-        <span class="text-muted">&copy; 2021 Company, Inc</span>
+        <span class="text-muted">&copy; 2021 Streaming-csapat</span>
       </div>
   
       <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
-        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
-        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="https://www.twitter.com" target="_blank"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="https://www.instragram.com" target="_blank"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="https://www.facebook.com" target="_blank"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
       </ul>
     </footer>
   </div>
